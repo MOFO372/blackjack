@@ -1,10 +1,16 @@
 package com.libertymutual.blackjack.controllers;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
+
+import com.libertymutual.blackjack.models.Card;
+import com.libertymutual.blackjack.models.Dealer;
+import com.libertymutual.blackjack.models.Deck;
+import com.libertymutual.blackjack.models.Gambler;
+import com.libertymutual.blackjack.models.Hand;
 
 @Controller
 @RequestMapping({"/", "/blackjack"})
@@ -23,11 +29,12 @@ public class BlackJackController {
 	}
 	
 	@GetMapping("")
-	public ModelAndView displayBlackjackForm() {
-		Hand hand = new Hand(); 
-		ModelAndView mv = new ModelAndView("blackjack/blackjack-form"); 
-		mv.addObject("hand", hand); 
-		return mv; 
+	public String displayBlackjackForm(Model model) {
+		Hand dealerHand = dealer.gethHand();
+		Hand gamblerHand = gambler.gethHand(); 
+		model.addAttribute("dealerHand", dealerHand); 
+		model.addAttribute("gamblerHand", gamblerHand);	
+		return "blackjack/blackjack-form"; 
 	}
 	
 //	@PostMapping("deal")
@@ -41,6 +48,7 @@ public class BlackJackController {
 	
 	@PostMapping("bet") 
 	public String bet() {
+		runningDeck.shuffle(); 
 		Card cardToDeal = runningDeck.getCard();
 		gambler.giveCard(cardToDeal);	
 		cardToDeal = runningDeck.getCard(); 
@@ -53,12 +61,16 @@ public class BlackJackController {
 	}
 	
 	@PostMapping("hit") 
-	public String hit() {
+	public String hit() {		
+		Card cardToDeal = runningDeck.getCard();
+		gambler.giveCard(cardToDeal);	
+		cardToDeal = runningDeck.getCard();
 		return "redirect:/blackjack";
 	}
 	
 	@PostMapping("stand")
 	public String stand() {
+		dealer.finishHittingHand(runningDeck);
 		return "redirect:/blackjack"; 
 	}
 	

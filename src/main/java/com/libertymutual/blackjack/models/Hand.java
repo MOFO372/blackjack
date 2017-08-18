@@ -1,4 +1,4 @@
-package com.libertymutual.blackjack.controllers;
+package com.libertymutual.blackjack.models;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.libertymutual.blackjack.controllers;
+package com.libertymutual.blackjack.models;
 
 public class Gambler {
 	
@@ -13,5 +13,8 @@ public class Gambler {
 		
 	}
 
+	public Hand gethHand() {
+		return hand; 
+	}
 
 }

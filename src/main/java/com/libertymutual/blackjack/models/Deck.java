@@ -1,4 +1,4 @@
-package com.libertymutual.blackjack.controllers;
+package com.libertymutual.blackjack.models;
 
 public class Deck {
 
@@ -80,12 +80,15 @@ public class Deck {
 				
 				cards[overallIndex] = cardToMove;
 				overallIndex += 1; 
+		
+				}
 			}
+		
 		}
-		
-		
+
 	}
-}
+		
+	
 
 
 
@@ -98,3 +101,5 @@ public class Deck {
 
 
 
+
+	
