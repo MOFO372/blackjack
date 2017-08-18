@@ -27,5 +27,5 @@ public class Dealer {
 			values = hand.getValues(); 
 		}
 	}
-
+	
 }

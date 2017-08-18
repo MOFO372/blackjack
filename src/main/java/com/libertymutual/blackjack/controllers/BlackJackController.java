@@ -5,7 +5,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import com.libertymutual.blackjack.models.Card;
 import com.libertymutual.blackjack.models.Dealer;
 import com.libertymutual.blackjack.models.Deck;
@@ -37,14 +36,12 @@ public class BlackJackController {
 		return "blackjack/blackjack-form"; 
 	}
 	
-//	@PostMapping("deal")
-//	public ModelAndView deal() {	
-//		Hand hand = new Hand(); 
-//		ModelAndView mv = new ModelAndView("blackjack/blackjack-form"); 
-//		mv.addObject("hand", hand); 
-//		return mv; 
-//		
-//	}
+	@PostMapping("nexthand")
+	public String nextHand() {	
+		dealer = new Dealer(); 
+		gambler = new Gambler();		
+		return "blackjack/blackjack-form";
+	}
 	
 	@PostMapping("bet") 
 	public String bet() {

@@ -14,6 +14,7 @@ public class Gambler {
 	}
 
 	public Hand gethHand() {
+			
 		return hand; 
 	}
 
