@@ -29,10 +29,12 @@ public class BlackJackController {
 	
 	@GetMapping("")
 	public String displayBlackjackForm(Model model) {
-		Hand dealerHand = dealer.gethHand();
+		Hand dealerHand = dealer.getDisplayCard();
 		Hand gamblerHand = gambler.gethHand(); 
 		model.addAttribute("dealerHand", dealerHand); 
 		model.addAttribute("gamblerHand", gamblerHand);	
+		model.addAttribute("dealerVisualHand", dealerHand.handDisplay()); 
+		model.addAttribute("gamblerVisualHand", gamblerHand.handDisplay()); 
 		return "blackjack/blackjack-form"; 
 	}
 	
@@ -50,6 +52,7 @@ public class BlackJackController {
 		gambler.giveCard(cardToDeal);	
 		cardToDeal = runningDeck.getCard(); 
 		dealer.giveCard(cardToDeal); 
+		dealer.updateDisplayCard(cardToDeal);
 		cardToDeal = runningDeck.getCard(); 
 		gambler.giveCard(cardToDeal);
 		cardToDeal = runningDeck.getCard(); 
@@ -61,7 +64,7 @@ public class BlackJackController {
 	public String hit() {		
 		Card cardToDeal = runningDeck.getCard();
 		gambler.giveCard(cardToDeal);	
-		cardToDeal = runningDeck.getCard();
+		//cardToDeal = runningDeck.getCard();
 		return "redirect:/blackjack";
 	}
 	

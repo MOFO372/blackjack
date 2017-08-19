@@ -35,24 +35,20 @@
 		<h1>It's blackjack time, bitches.</h1>
 		
 		<h3>Dealer's hand:</h3>
+		 <div> Cards: {{dealerVisualHand}}</div>
 		{{#dealerHand.values}}
-			<div>Value: {{ . }}</div>
-		{{/dealerHand.values}}
-		
+			<div>Total: {{ . }}</div>
+		{{/dealerHand.values}}		
 		<hr>
 		
 		<h3>Your hand:</h3>
+		<div>Cards: {{gamblerVisualHand}}</div>
 		{{#gamblerHand.values}}
-			<div>Value: {{ . }}</div>
+			<div>Total: {{ . }}</div>
 		{{/gamblerHand.values}}
 		
 		<hr>
-		
-		
-		{{#hand.cards}}
-			<div>{{suit}} of {{visualRepresentation}}</div>
-		{{/hand.cards}}
-		
+
 		
 		<form method="post" action="/blackjack/bet">
 			<input autofocus type="number" step="any" name="enteredValue">	

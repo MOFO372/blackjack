@@ -3,9 +3,11 @@ package com.libertymutual.blackjack.models;
 public class Dealer {
 
 	private Hand hand; 
+	private Hand displayCard;
 	
 	public Dealer() {
 		hand = new Hand(); 
+		displayCard = new Hand(); 
 	}
 
 	public void giveCard(Card cardToDeal) {
@@ -26,6 +28,15 @@ public class Dealer {
 			hand.addCard(theNextCard);
 			values = hand.getValues(); 
 		}
+		displayCard = hand; 
+	}
+	
+	public Hand getDisplayCard() {
+		return displayCard; 
+	}
+	
+	public void updateDisplayCard(Card cardToDeal) {
+		displayCard.addCard(cardToDeal);
 	}
 	
 }

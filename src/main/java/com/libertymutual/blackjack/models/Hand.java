@@ -31,6 +31,22 @@ public class Hand {
 		
 		return sums; 
 	}
+	
+	public String handDisplay() {
+		String visualHand = "";
+		
+		if(cards.isEmpty()) {
+			return visualHand; 
+		}
+		
+		visualHand += cards.get(0).getVisualRepresentation();
+		
+		for(int i = 1; i < cards.size(); i += 1) { 
+			visualHand += ", " + cards.get(i).getVisualRepresentation(); 
+		}
+		
+		return visualHand; 
+	}
 		
 }
 			

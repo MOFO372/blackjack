@@ -4,6 +4,7 @@ public class FaceCard implements Card {
 	
 	private String visualRepresentation;
 	private String suit; 
+	private int value = 10; 
 	
 	public FaceCard(String visualRepresentation, String suit) {
 		this.suit = suit; 
@@ -11,7 +12,7 @@ public class FaceCard implements Card {
 	}
 	
 	public String getVisualRepresentation() {
-		return visualRepresentation; 
+		return String.valueOf(visualRepresentation + " " + suit + " (" + value + ")");
 	}
 	
 	public String getSuit() {
@@ -19,7 +20,7 @@ public class FaceCard implements Card {
 	}
 
 	public int[] getValues() {
-		return new int[] {10,10}; 
+		return new int[] {value,value}; 
 	}
 	
 	@Override

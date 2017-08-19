@@ -20,7 +20,7 @@ public class NumberCard implements Card {
 	
 	@Override
 	public String getVisualRepresentation() {
-		return String.valueOf(value); 
+		return String.valueOf(value + " " + suit + " (" + value + ")"); 
 	}
 	
 	@Override
