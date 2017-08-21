@@ -49,6 +49,15 @@
 		
 		<hr>
 
+		<h3>Pot Value:</h3>
+		<div> {{potValue}} </div>
+		
+		<h3>Wallet Value:</h3>
+		<div> {{walletValue}} </div>
+		
+		
+		<!-- gameover div -->
+		<div>{{gameMessage}}</div>
 		
 		<form method="post" action="/blackjack/bet">
 			<input autofocus type="number" step="any" name="enteredValue">	
@@ -70,6 +79,7 @@
 		<form method="post" action="/blackjack/rules">
 			<button>Rules</button>	
 		</form>	
+	
 	</body>
 
 </html>

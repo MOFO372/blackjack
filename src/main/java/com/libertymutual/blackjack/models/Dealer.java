@@ -39,4 +39,9 @@ public class Dealer {
 		displayCard.addCard(cardToDeal);
 	}
 	
+//	public boolean isBust() {
+//		int[] values = hand.getValues();
+//		return values[0] > 21 && values[1] > 21;
+//	}
+	
 }
